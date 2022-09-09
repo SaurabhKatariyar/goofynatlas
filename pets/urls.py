@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import CreateReadPets
-
+from .views import ReadPets, WritePets
 urlpatterns = [
-    path('', CreateReadPets.as_view()),
+    path('/read', ReadPets.as_view()),
+    path('/write', WritePets.as_view()),
 ]
