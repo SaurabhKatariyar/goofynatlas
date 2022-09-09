@@ -12,3 +12,6 @@ class ReadPets(generics.ListAPIView):
 class WritePets(generics.CreateAPIView):
     queryset = PetRegister.objects.all()
     serializer_class = PetRegisterSerializers
+
+    def perform_create(self, serializer):
+        serializer.save(pet_owner_name=self.request.user)
