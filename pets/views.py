@@ -4,6 +4,11 @@ from .models import PetRegister
 from .serializers import PetRegisterSerializers
 
 
-class CreateReadPets(generics.ListCreateAPIView):
+class ReadPets(generics.ListAPIView):
+    queryset = PetRegister.objects.all()
+    serializer_class = PetRegisterSerializers
+
+
+class WritePets(generics.CreateAPIView):
     queryset = PetRegister.objects.all()
     serializer_class = PetRegisterSerializers
